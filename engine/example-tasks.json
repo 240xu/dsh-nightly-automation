@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "profileFile": "$DSH_HOME/profiles/web/cordis.patch.yml",
+  "tasks": [
+    {
+      "id": "websearch-polish",
+      "title": "打磨 dsh websearch（参考 OpenCode v2）",
+      "description": "每晚在独立会话里研究 DSH 的 web_search/web_fetch 与 OpenCode v2 的差距，落地一项可合入的改进并留下报告。",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expression": "0 23 * * *",
+        "timeZone": "Asia/Shanghai"
+      },
+      "model": {
+        "provider": "<PROVIDER_ID>",
+        "model": "<MODEL_ID>",
+        "reasoningEffort": "max"
+      },
+      "cwd": "<WORKTREE>",
+      "promptFile": "prompts/websearch-polish.md",
+      "keepRuns": 20,
+      "allowedTools": null,
+      "createdAt": "2026-11-04T02:00:00.000Z"
+    }
+  ]
+}

@@ -153,6 +153,28 @@ Migrating is a manual step: create the equivalent task with `schedule_create`
 (`target: new_once` or `new`) and then remove this bundle, its crontab block, and
 `$DSH_HOME/automation/`.
 
+## Archive contents beyond the plugin
+
+The plugin rows above are what the bundle mounts. The unattended engine and the
+material it produced are kept here under `engine/` and `docs/`:
+
+| Path | What it is |
+| --- | --- |
+| `runner/runner.mjs` | the deployment copy of the runner (retries, per-task timeout, resume) |
+| `runner/README.md` | where to install it and which environment it needs |
+| `engine/bin/scheduler.mjs` | crontab ↔ `tasks.json` projection helpers used while developing |
+| `engine/example-tasks.json` | a catalog with placeholder values, for reference |
+| `engine/example-prompt.md` | an example per-task prompt |
+| `engine/rehearsal-prompt.md` | the short prompt used for a dry run |
+| `engine/run.sh` | the earliest shell-driven entry point (superseded by `runner.mjs`) |
+| `engine/SPEC-zhongben.md` | the last specification written before the plugin was retired |
+| `engine/README.md` | the operator notes for the engine's directory layout |
+| `docs/RECOVERY.md` | how the source was reconstructed from session logs, and its limits |
+
+`engine/` is reference material, not an installable layer: mounting it does
+nothing. Values that were host-specific in the original deployment (absolute
+paths, provider and model ids) are replaced with `<PLACEHOLDERS>`.
+
 ## License
 
 MIT.
