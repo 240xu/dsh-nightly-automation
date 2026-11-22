@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Nightly Automation",
+    "description": "Runs the unattended web_search polish job every night in its own Session, and shows the schedules, transcripts, and reports."
+  }
+}
