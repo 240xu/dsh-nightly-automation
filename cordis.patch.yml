@@ -1,0 +1,10 @@
+# Nightly automation bundle patch. The first row mounts the Host half, whose
+# HTTP routes the browser half reads. The second row registers the model-facing
+# tools in the top-level scope, so every agent in this profile can call them.
+- insert:
+    - id: nightly-automation
+      name: 'dsh-nightly-automation'
+      config: {}
+    - id: nightly-automation-tools
+      name: 'dsh-nightly-automation/tools'
+      config: {}
